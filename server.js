@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 
 // import the routes in routes/index.js
 const indexRouter = require('./routes/index')
+const adminRouter = require('./routes/admin')
 
 // Create the web application
 const app = express() 
@@ -22,10 +23,11 @@ app.set('view engine', 'hbs')
 
 // make the routes in index.js available to the app 
 app.use('/', indexRouter)
+app.use('/admin', adminRouter)  // "mount" the routes in this file at /admin 
 
 app.use( function(err, req, res, next) {
-    console.error(err.stack)
-    res.status(500).render('error')
+    console.error(err.stack)  // logs an error for the developer 
+    res.status(500).render('error')   // renders user-friendly error page 
 })
 
 // Start server running 
@@ -34,4 +36,12 @@ const port = process.env.PORT || 3000
 let server = app.listen(port, function() {
     console.log('Express server running on port', port)
 })
+
+
+
+
+
+
+
+
 

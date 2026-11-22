@@ -27,6 +27,7 @@ router.post('/submit-feedback', async function(req, res, next){
         res.render('thank_you', { ...formData })  // send user the thank you page and keep processing 
     } catch (error) {
         console.error(`Error saving feedback because ${error}`, formData)
+        res.locals.message = 'Error saving feedback, please try again later.'
         return next(error)   // send control to the error handler and STOP processing in this function 
     }
 

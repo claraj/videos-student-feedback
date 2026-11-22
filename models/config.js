@@ -15,6 +15,10 @@ module.exports = {
                 'rejectUnauthorized': false
             }
         }
+    },
+    'test': {
+        'storage': 'test_feedback.sqlite',
+        'dialect': 'sqlite'
     }
 }
 

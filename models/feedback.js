@@ -18,7 +18,10 @@ module.exports = (sequelizeDatabase) => {
             },
             comments: {
                 type: DataTypes.STRING, 
-                allowNull: false
+                allowNull: false,
+                validate: {
+                    notEmpty: true  // no empty strings
+                }
             },
             isCurrentStudent: {
                 type: DataTypes.BOOLEAN,

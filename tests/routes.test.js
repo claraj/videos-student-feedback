@@ -28,6 +28,11 @@ describe('Home page request', () => {
         expect(response.text).toContain('Clara') // use your name 
     })
 
+    it('displays a message about Azure', async () => {
+        const response = await request(app).get('/')
+        expect(response.text).toContain('Azure')
+    })
+
 })
 
 // Test suites - related test for the same feature
